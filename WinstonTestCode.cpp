@@ -21,7 +21,7 @@
 int main()
 {
 
-	std:cout << "Hello World!\r";
+	cout << "Hello World!" << endl;
 
     int motorLeft = 3;
     int motorRight = 5;
