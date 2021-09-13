@@ -32,7 +32,10 @@ int get_output_pin()
 	return output_pins.at(GPIO::model);
 }
 
-
+inline void delay(int s)
+{
+	this_thread::sleep_for(chrono::seconds(s));
+}
 
 static bool end_this_program = false;
 
