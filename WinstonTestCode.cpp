@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstudio>
 #include </usr/include/JetsonGPIO/include/JetsonGPIO.h>
 //using namespace GPIO; // optional
 
@@ -27,7 +26,7 @@ int main()
 int MoveMotor(int *motor)
 {
 
-    printf("GPIO %d is on.\n", motor);
-    
+    std::cout << "GPIO " << motor << "is on.\n";
+
 	return 0;
 }
