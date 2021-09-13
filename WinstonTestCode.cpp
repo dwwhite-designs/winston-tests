@@ -8,9 +8,9 @@
 int MoveMotor(int motor)
 {
 
-
-    std::ostringstream gpioNum;
 /*
+    std::ostringstream gpioNum;
+
     gpioNum << "GPIO " << motor << " is on.";
     std::string var = gpioNum.str() ;
 */
