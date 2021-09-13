@@ -12,6 +12,11 @@ int main()
     int motorLeft = 3;
     int motorRight = 5;
 
+
+
+    MoveMotor(motorLeft);
+
+
 	std::cin.clear(); // reset any error flags
     //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore any characters in the input buffer until we find an enter character
     //std::cin.get(); // get one more char from the user
@@ -19,8 +24,10 @@ int main()
 }
 
 
-int MoveMotor(int motor)
+int MoveMotor(int *motor)
 {
 
+    printf("GPIO %d is on.\n", motor);
+    
 	return 0;
 }
