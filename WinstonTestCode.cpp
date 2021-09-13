@@ -1,5 +1,4 @@
-#include <string>
-#include <sstream>
+
 #include </usr/include/JetsonGPIO/include/JetsonGPIO.h>
 #include <iostream>
 //using namespace GPIO; // optional
@@ -21,7 +20,7 @@
 int main()
 {
 
-	cout << "Hello World!" << endl;
+	std::cout << "Hello World!";
 
     int motorLeft = 3;
     int motorRight = 5;
