@@ -49,6 +49,7 @@ void signalHandler(int s)
 int MoveMotor(int motor)
 {
 
+    GPIO::setup(motor, GPIO::OUT, GPIO::LOW);
 
     cout << "GPIO ";
     cout << motor;
@@ -83,10 +84,8 @@ int main()
 	int output_pin = get_output_pin();
 
 
-    int motorLeft = 3;
-    GPIO::setup(motorLeft, GPIO::OUT, GPIO::LOW);
+    int motorLeft = 33;
     int motorRight = 5;
-    GPIO::setup(motorRight, GPIO::OUT, GPIO::LOW);
 
 
     cout << "output pin: ";
