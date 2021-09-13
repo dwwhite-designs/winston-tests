@@ -3,7 +3,7 @@
 //using namespace GPIO; // optional
 
 
-int MoveMotor(int *motor)
+int MoveMotor(int motor)
 {
 
     std::cout << "GPIO " << motor << "is on.\n";
