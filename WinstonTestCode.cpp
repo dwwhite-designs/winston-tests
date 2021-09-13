@@ -1,26 +1,26 @@
 
 #include </usr/include/JetsonGPIO/include/JetsonGPIO.h>
 #include <iostream>
+
 //using namespace GPIO; // optional
 
 
-//int MoveMotor(int motor)
-//{
+int MoveMotor(int motor)
+{
 
-/*
-    std::ostringstream gpioNum;
 
-    gpioNum << "GPIO " << motor << " is on.";
-    std::string var = gpioNum.str() ;
-*/
-//	return 0;
-//}
+    std::cout << "GPIO ";
+    std::cout << motor;
+    std::cout << " is on./r";
+
+	return 0;
+}
 
 
 int main()
 {
 
-	std::cout << "Hello World!";
+	std::cout << "Hello World!/r";
 
     int motorLeft = 3;
     int motorRight = 5;
