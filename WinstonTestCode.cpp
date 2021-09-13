@@ -14,7 +14,7 @@
     gpioNum << "GPIO " << motor << " is on.";
     std::string var = gpioNum.str() ;
 */
-	return 0;
+//	return 0;
 //}
 
 
