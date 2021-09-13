@@ -6,7 +6,7 @@
 int MoveMotor(int motor)
 {
 
-    cout << "GPIO " << motor << " is on.\r";
+    std::cout << "GPIO " << motor << " is on.\r";
 
 	return 0;
 }
