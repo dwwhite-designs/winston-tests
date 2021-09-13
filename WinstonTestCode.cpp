@@ -27,7 +27,7 @@ int main()
 
 
 
-    //MoveMotor(motorLeft);
+    MoveMotor(motorLeft);
 
 
 	//std::cin.clear(); // reset any error flags
