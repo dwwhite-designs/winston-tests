@@ -3,6 +3,14 @@
 //using namespace GPIO; // optional
 
 
+int MoveMotor(int *motor)
+{
+
+    std::cout << "GPIO " << motor << "is on.\n";
+
+	return 0;
+}
+
 int main()
 {
 
@@ -23,10 +31,4 @@ int main()
 }
 
 
-int MoveMotor(int *motor)
-{
 
-    std::cout << "GPIO " << motor << "is on.\n";
-
-	return 0;
-}
