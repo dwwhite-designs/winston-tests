@@ -5,6 +5,8 @@
 //using namespace GPIO; // optional
 
 
+//compile with g++ -o your_program_name your_source_code.cpp -lJetsonGPIO
+
 int MoveMotor(int motor)
 {
 
@@ -21,6 +23,10 @@ int main()
 {
 
 	std::cout << "Hello World!\n";
+
+    //set standard for way to number I/O pins - current BOARD = pin # of 40 pin GPIO header
+    GPIO::setmode(GPIO::BOARD);
+    GPIO::NumberingModes mode = GPIO::getmode();
 
     int motorLeft = 3;
     int motorRight = 5;
