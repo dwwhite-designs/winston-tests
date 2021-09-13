@@ -11,7 +11,7 @@ int MoveMotor(int motor)
 
     std::cout << "GPIO ";
     std::cout << motor;
-    std::cout << " is on.\r";
+    std::cout << " is on.\n";
 
 	return 0;
 }
@@ -20,7 +20,7 @@ int MoveMotor(int motor)
 int main()
 {
 
-	std::cout << "Hello World!\r";
+	std::cout << "Hello World!\n";
 
     int motorLeft = 3;
     int motorRight = 5;
