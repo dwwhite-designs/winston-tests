@@ -25,6 +25,18 @@ int MoveMotor(int motor)
     cout << "GPIO ";
     cout << motor;
     cout << " is on.\n";
+    GPIO::PWM p(motor, 50);
+    p.start(val);
+
+
+    cout << "PWM running. Press CTRL+C to exit." << endl;
+
+	while (!end_this_program)
+	{
+		delay(1);
+	}
+
+    p.stop();
 
 	return 0;
 }
@@ -42,6 +54,16 @@ int get_output_pin()
 }
 
 
+
+static bool end_this_program = false;
+
+void signalHandler(int s)
+{
+	end_this_program = true;
+}
+
+
+
 int main()
 {
 
@@ -56,7 +78,10 @@ int main()
 
 
     int motorLeft = 3;
+    GPIO::setup(motorLeft, GPIO::OUT, GPIO::LOW);
     int motorRight = 5;
+    GPIO::setup(motorRight, GPIO::OUT, GPIO::LOW);
+
 
     cout << "output pin: ";
     cout << output_pin;
