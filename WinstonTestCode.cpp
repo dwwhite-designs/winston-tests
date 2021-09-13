@@ -20,7 +20,7 @@ int MoveMotor(int motor)
 int main()
 {
 
-	cout << "Hello World!\r";
+	std:cout << "Hello World!\r";
 
     int motorLeft = 3;
     int motorRight = 5;
