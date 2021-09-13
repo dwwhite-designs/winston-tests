@@ -5,8 +5,8 @@
 //using namespace GPIO; // optional
 
 
-int MoveMotor(int motor)
-{
+//int MoveMotor(int motor)
+//{
 
 /*
     std::ostringstream gpioNum;
@@ -15,7 +15,8 @@ int MoveMotor(int motor)
     std::string var = gpioNum.str() ;
 */
 	return 0;
-}
+//}
+
 
 int main()
 {
@@ -27,10 +28,10 @@ int main()
 
 
 
-    MoveMotor(motorLeft);
+    //MoveMotor(motorLeft);
 
 
-	std::cin.clear(); // reset any error flags
+	//std::cin.clear(); // reset any error flags
     //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore any characters in the input buffer until we find an enter character
     //std::cin.get(); // get one more char from the user
     return 0;
