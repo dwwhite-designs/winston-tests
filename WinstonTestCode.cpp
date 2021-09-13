@@ -58,7 +58,9 @@ int main()
     int motorLeft = 3;
     int motorRight = 5;
 
-
+    cout << "output pin: ";
+    cout << output_pin;
+    cout << "\n";
 
     MoveMotor(motorLeft);
 
