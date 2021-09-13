@@ -1,24 +1,22 @@
+//compile with g++ -o your_program_name your_source_code.cpp -lJetsonGPIO
 
+
+//Headers
 #include <iostream>
-
 #include <chrono>
 #include <thread>
 #include <map>
 #include <string>
-
-//signal handling
-#include <signal.h>
-
-//Jetson GPIO C++ controls
-#include </usr/include/JetsonGPIO/include/JetsonGPIO.h>
+#include <signal.h> //signal handling
+#include </usr/include/JetsonGPIO/include/JetsonGPIO.h> //Jetson GPIO C++ controls
 
 
+//Namespace
 using namespace std;
-
 //using namespace GPIO; // optional
 
 
-//compile with g++ -o your_program_name your_source_code.cpp -lJetsonGPIO
+const map<string, int> output_pins{{"JETSON_XAVIER", 18}, {"JETSON_NANO", 33}};
 
 int MoveMotor(int motor)
 {
