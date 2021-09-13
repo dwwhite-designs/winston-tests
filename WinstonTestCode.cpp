@@ -26,9 +26,8 @@ int main()
 
     //set standard for way to number I/O pins - current BOARD = pin # of 40 pin GPIO header
     GPIO::setmode(GPIO::BOARD);
-    GPIO::NumberingModes mode = GPIO::getmode();
-    std::cout << mode;
-    std::cout << "\n";
+    std::cout << GPIO::NumberingModes mode = GPIO::getmode();
+
 
     int motorLeft = 3;
     int motorRight = 5;
