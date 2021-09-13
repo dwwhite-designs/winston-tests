@@ -18,28 +18,7 @@ using namespace std;
 
 const map<string, int> output_pins{{"JETSON_XAVIER", 18}, {"JETSON_NANO", 33}};
 
-int MoveMotor(int motor)
-{
 
-
-    cout << "GPIO ";
-    cout << motor;
-    cout << " is on.\n";
-    GPIO::PWM p(motor, 50);
-    p.start(val);
-
-
-    cout << "PWM running. Press CTRL+C to exit." << endl;
-
-	while (!end_this_program)
-	{
-		delay(1);
-	}
-
-    p.stop();
-
-	return 0;
-}
 
 
 int get_output_pin()
@@ -63,6 +42,30 @@ void signalHandler(int s)
 }
 
 
+
+int MoveMotor(int motor)
+{
+
+
+    cout << "GPIO ";
+    cout << motor;
+    cout << " is on.\n";
+    GPIO::PWM p(motor, 50);
+    auto val = 25.0;
+    p.start(val);
+
+
+    cout << "PWM running. Press CTRL+C to exit." << endl;
+
+	while (!end_this_program)
+	{
+		delay(1);
+	}
+
+    p.stop();
+
+	return 0;
+}
 
 int main()
 {
