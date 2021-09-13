@@ -1,6 +1,19 @@
 
-#include </usr/include/JetsonGPIO/include/JetsonGPIO.h>
 #include <iostream>
+
+#include <chrono>
+#include <thread>
+#include <map>
+#include <string>
+
+//signal handling
+#include <signal.h>
+
+//Jetson GPIO C++ controls
+#include </usr/include/JetsonGPIO/include/JetsonGPIO.h>
+
+
+using namespace std;
 
 //using namespace GPIO; // optional
 
@@ -11,22 +24,37 @@ int MoveMotor(int motor)
 {
 
 
-    std::cout << "GPIO ";
-    std::cout << motor;
-    std::cout << " is on.\n";
+    cout << "GPIO ";
+    cout << motor;
+    cout << " is on.\n";
 
 	return 0;
+}
+
+
+int get_output_pin()
+{
+	if (output_pins.find(GPIO::model) == output_pins.end())
+	{
+		cerr << "PWM not supported on this board\n";
+		terminate();
+	}
+
+	return output_pins.at(GPIO::model);
 }
 
 
 int main()
 {
 
-	std::cout << "Hello World!\n";
+	cout << "Hello World!\n";
 
     //set standard for way to number I/O pins - current BOARD = pin # of 40 pin GPIO header
     GPIO::setmode(GPIO::BOARD);
-    std::cout << GPIO::NumberingModes mode = GPIO::getmode();
+    
+
+    // Pin Definitions
+	int output_pin = get_output_pin();
 
 
     int motorLeft = 3;
@@ -40,6 +68,9 @@ int main()
 	//std::cin.clear(); // reset any error flags
     //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore any characters in the input buffer until we find an enter character
     //std::cin.get(); // get one more char from the user
+
+
+    GPIO::cleanup();
     return 0;
 }
 
