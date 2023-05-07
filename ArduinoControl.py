@@ -9,7 +9,7 @@ if __name__ == '__main__':
 x = True
 
 
-    while True:
+    while x:
         if ser.in_waiting > 0:
             line = ser.readline().decode('utf-8').rstrip()
             print(line)
@@ -18,7 +18,7 @@ x = True
         command = input()
         if command == "f"
             x = False
-            
+
         ser.write(command + "/n".encode('utf-8'))
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
