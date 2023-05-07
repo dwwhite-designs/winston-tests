@@ -13,6 +13,6 @@ Bluetooth Module<br>
 C
 
 ## Libraries:
-Wire.h<br>
+WiringPi.h<br>
 PWMServo.h<br>
 SoftwareSerial.h<br>

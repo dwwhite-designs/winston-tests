@@ -43,6 +43,12 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "chrono": "c",
+        "format": "c",
+        "forward_list": "c",
+        "xstring": "c",
+        "xtree": "c",
+        "xutility": "c"
     }
 }

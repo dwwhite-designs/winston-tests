@@ -1,4 +1,4 @@
-#include <Wire.h>
+#include <wiringPi.h>
 #include <PWMServo.h>
 #include <SoftwareSerial.h>
 
@@ -13,11 +13,13 @@
 #define TX_PIN 11
 SoftwareSerial bluetooth(RX_PIN, TX_PIN);
 
+
+
 PWMServo servo;
 bool rotate = false;
 
 void setup() {
-  Wire.begin();
+  wiringPiSetupGpio (void);
   servo.begin();
   bluetooth.begin(9600);
 }
