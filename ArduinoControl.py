@@ -16,7 +16,7 @@ if __name__ == '__main__':
     
         print("Enter a, s, d, or f")
         command = input()
-        if command == 'f'
+        if command == 'f':
             x = False
 
         ser.write(command + "/n".encode('utf-8'))
