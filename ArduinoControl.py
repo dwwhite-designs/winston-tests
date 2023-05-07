@@ -8,13 +8,15 @@ if __name__ == '__main__':
 
     x = True
 
+    ser.write("Starting up connection./n".encode('utf-8'))
+
 
     while x:
         if ser.in_waiting > 0:
             line = ser.readline().decode('utf-8').rstrip()
             print(line)
     
-        print("Enter a, s, d, or f")
+        print("Enter a, s, d, or f.")
         command = input()
         if command == 'f':
             x = False
