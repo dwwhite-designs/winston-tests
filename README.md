@@ -11,8 +11,11 @@ Bluetooth Module<br>
 
 ## Languages:
 C
+Python
 
 ## Libraries:
 WiringPi.h<br>
 PWMServo.h<br>
 SoftwareSerial.h<br>
+
+PySerial<br>

@@ -1,6 +1,6 @@
-#include <wiringPi.h>
-//#include <PWMServo.h>
-#include <SoftwareSerial.h>
+#include <Wire.h>
+#include <PWMServo.h>
+//#include <SoftwareSerial.h>
 
 // Servo channel on the PCA9685
 #define SERVO_CHANNEL 0
@@ -11,7 +11,7 @@
 // SoftwareSerial for Bluetooth communication
 #define RX_PIN 10
 #define TX_PIN 11
-SoftwareSerial bluetooth(RX_PIN, TX_PIN);
+//SoftwareSerial bluetooth(RX_PIN, TX_PIN);
 
 
 
@@ -21,11 +21,11 @@ bool rotate = false;
 void setup() {
   wiringPiSetupGpio (void);
   //servo.begin();
-  bluetooth.begin(9600);
+  //bluetooth.begin(9600);
 }
 
 void loop() {
-  checkBluetooth();
+  //checkBluetooth();
   //checkServo();
 }
 /*
