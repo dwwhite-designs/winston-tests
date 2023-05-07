@@ -1,5 +1,5 @@
 #include <wiringPi.h>
-#include <PWMServo.h>
+//#include <PWMServo.h>
 #include <SoftwareSerial.h>
 
 // Servo channel on the PCA9685
@@ -15,20 +15,20 @@ SoftwareSerial bluetooth(RX_PIN, TX_PIN);
 
 
 
-PWMServo servo;
+//PWMServo servo;
 bool rotate = false;
 
 void setup() {
   wiringPiSetupGpio (void);
-  servo.begin();
+  //servo.begin();
   bluetooth.begin(9600);
 }
 
 void loop() {
   checkBluetooth();
-  checkServo();
+  //checkServo();
 }
-
+/*
 void checkBluetooth() {
   while (bluetooth.available()) {
     // receive command from Bluetooth device
@@ -75,3 +75,4 @@ int getDistance() {
   // ...
   return distance;
 }
+*/
