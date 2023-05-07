@@ -32,4 +32,4 @@ if __name__ == '__main__':
 
         line = write_read(output)
         print(line)
-        time.sleep(0.5)
+        time.sleep(1)
