@@ -17,13 +17,13 @@ if __name__ == '__main__':
         time.sleep(1) """
     
     while True:
-    if ser.in_waiting > 0:
+        if ser.in_waiting > 0:
             line = ser.readline().decode('utf-8').rstrip()
             print(line)
     
-    print("Enter a, s, d, or f")
-    command = input()
-    ser.write(command + "/n".encode('utf-8'))
-    line = ser.readline().decode('utf-8').rstrip()
-    print(line)
-    time.sleep(1)
+        print("Enter a, s, d, or f")
+        command = input()
+        ser.write(command + "/n".encode('utf-8'))
+        line = ser.readline().decode('utf-8').rstrip()
+        print(line)
+        time.sleep(1)
