@@ -18,8 +18,9 @@ if __name__ == '__main__':
         command = input()
         if command == 'f':
             x = False
+        output = command + "/n"
 
-        ser.write(command + "/n".encode('utf-8'))
+        ser.write(output.encode('utf-8'))
         line = ser.readline().decode('utf-8').rstrip()
         print(line)
         time.sleep(1)
