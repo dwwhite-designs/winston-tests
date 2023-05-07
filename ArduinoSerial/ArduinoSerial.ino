@@ -4,6 +4,7 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
+    delay(10);
     String data = Serial.readStringUntil('\n');
 
     int data_len = data.length() + 1;
@@ -29,5 +30,8 @@ void loop() {
         Serial.println("Stopping.");
         break;
     }
+
+  Serial.flush()
   }
+
 }
