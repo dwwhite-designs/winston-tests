@@ -31,7 +31,7 @@ void loop() {
         break;
     }
 
-  Serial.flush()
+  Serial.flush();
   }
 
 }
