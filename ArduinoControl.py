@@ -2,18 +2,26 @@
 import serial
 import time
 
+
+def write_read(inputs):
+    arduino.write(bytes(inputs, 'utf-8'))
+    time.sleep(0.05)
+    data = arduino.readline().decode('utf-8').rstrip()
+    return data
+
+
 if __name__ == '__main__':
-    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=0)
-    ser.reset_input_buffer()
+    arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=0.1)
+    arduino.reset_input_buffer()
 
     x = True
 
-    ser.write("Starting up connection./n".encode('utf-8'))
+    arduino.write("Starting up connection./n".encode('utf-8'))
 
 
     while x:
-        if ser.in_waiting > 0:
-            line = ser.readline().decode('utf-8').rstrip()
+        if arduino.in_waiting > 0:
+            line = arduino.readline().decode('utf-8').rstrip()
             print(line)
     
         print("Enter a, s, d, or f.")
@@ -22,7 +30,6 @@ if __name__ == '__main__':
             x = False
         output = command + "/n"
 
-        ser.write(output.encode('utf-8'))
-        line = ser.readline().decode('utf-8').rstrip()
+        line = write_read(output)
         print(line)
-        time.sleep(1)
+        #time.sleep(0.5)
