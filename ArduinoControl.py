@@ -13,22 +13,17 @@ def write_read(inputs):
 
 
 
-# Call the 'lsof' command to retrieve a list of open sockets
-process = subprocess.Popen(['sudo', 'lsof', '-i'], stdout=subprocess.PIPE)
+# Call the 'bluetoothctl' command to retrieve a list of connected devices
+process = subprocess.Popen(['bluetoothctl', 'paired-devices'], stdout=subprocess.PIPE)
 
-# Filter for Bluetooth sockets that are currently connected
+# Extract the MAC addresses of the connected devices
 output, error = process.communicate()
 connected_devices = []
 for line in output.decode().split('\n'):
-    if 'bluetooth' in line and 'ESTABLISHED' in line:
+    if 'Device' in line:
         parts = line.split()
-        mac_address = parts[-1].split(':')[0]
-        if mac_address != '00:00:00:00:00:00':
-            connected_devices.append(mac_address)
-
-# Print the MAC addresses of the connected devices
-for address in connected_devices:
-    print(f"Connected device with MAC address: {address}")
+        mac_address = parts[1]
+        connected_devices.append(mac_address)
 
 # Print the MAC addresses of the connected devices
 for address in connected_devices:
