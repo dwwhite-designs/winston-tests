@@ -11,10 +11,16 @@ def write_read(inputs):
     return data
 
 
-paired_devices = bluetooth.bonded_devices()
-for address in paired_devices:
-    print(f"Paired device with MAC address: {address}")
+# Get a list of connected devices
+connected_devices = bluetooth.find_service()
 
+# Print the name and address of each connected device
+for device in connected_devices:
+    print(f"Connected device with name: {device['name']}")
+    print(f"Address: {device['host']}")
+
+
+    
 if __name__ == '__main__':
     arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=0.1)
     arduino.reset_input_buffer()
