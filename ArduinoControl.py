@@ -7,7 +7,7 @@ import traceback
 
 def write_serial(inputs):
     arduino.write(bytes(inputs, 'utf-8'))
-    time.sleep(0.5)
+    time.sleep(0.1)
     return
 
 def read_serial():

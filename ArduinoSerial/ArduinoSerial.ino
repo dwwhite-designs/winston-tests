@@ -12,8 +12,8 @@ void loop() {
     data.toCharArray(dataCh,data_len);
 
 
-    Serial.print("You sent me: ");
-    Serial.println(data);
+    // Serial.print("You sent me: ");
+    // Serial.println(data);
     
 
     switch (dataCh[0]) {
