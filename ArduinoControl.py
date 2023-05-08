@@ -11,16 +11,20 @@ def write_read(inputs):
     return data
 
 
-# Get a list of connected devices
-connected_devices = bluetooth.find_service()
+# Get a list of all Bluetooth sockets
+sockets = bluetooth.bluez._get_sockets()
 
-# Print the name and address of each connected device
-for device in connected_devices:
-    print(f"Connected device with name: {device['name']}")
-    print(f"Address: {device['host']}")
+# Filter for sockets that are currently connected
+connected_sockets = [s for s in sockets if s[1] == bluetooth.RFCOMM and s[3] != '00:00:00:00:00:00']
+
+# Get the MAC addresses of the connected devices
+connected_devices = [s[0][0] for s in connected_sockets]
+
+# Print the MAC addresses of the connected devices
+for address in connected_devices:
+    print(f"Connected device with MAC address: {address}")
 
 
-    
 if __name__ == '__main__':
     arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=0.1)
     arduino.reset_input_buffer()
