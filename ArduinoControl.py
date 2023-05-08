@@ -7,6 +7,7 @@ import traceback
 
 def write_serial(inputs):
     arduino.write(bytes(inputs, 'utf-8'))
+    time.sleep(0.5)
     return
 
 def read_serial():
@@ -61,7 +62,7 @@ try:
 
         write_serial(output)
         print(read_serial())
-        print(read_serial())
+        #print(read_serial())
         time.sleep(1)
 except Exception as e:
     # Print the traceback error message
