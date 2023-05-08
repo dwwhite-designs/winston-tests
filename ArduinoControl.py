@@ -54,7 +54,7 @@ except Exception as e:
     traceback.print_exc()
 
 
-if __name__ == '__main__':
+""" if __name__ == '__main__':
     arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=0.1)
     arduino.reset_input_buffer()
 
@@ -76,4 +76,4 @@ if __name__ == '__main__':
 
         line = write_read(output)
         print(line)
-        time.sleep(1)
+        time.sleep(1) """
