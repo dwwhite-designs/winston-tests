@@ -5,9 +5,11 @@ import subprocess
 import traceback
 
 
-def write_read(inputs):
+def write_serial(inputs):
     arduino.write(bytes(inputs, 'utf-8'))
-    time.sleep(0.05)
+    return
+
+def read_serial():
     data = arduino.readline().decode('utf-8').rstrip()
     return data
 
@@ -57,8 +59,9 @@ try:
             x = False
         output = command + "/n"
 
-        line = write_read(output)
-        print(line)
+        write_serial(output)
+        print(read_serial())
+        print(read_serial())
         time.sleep(1)
 except Exception as e:
     # Print the traceback error message
