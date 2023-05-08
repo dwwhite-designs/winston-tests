@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import serial
 import time
+import bluetooth
 
 
 def write_read(inputs):
@@ -9,6 +10,10 @@ def write_read(inputs):
     data = arduino.readline().decode('utf-8').rstrip()
     return data
 
+
+paired_devices = bluetooth.bonded_devices()
+for address in paired_devices:
+    print(f"Paired device with MAC address: {address}")
 
 if __name__ == '__main__':
     arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=0.1)
