@@ -14,23 +14,6 @@ def write_read(inputs):
 
 
 
-""" # Call the 'bluetoothctl' command to retrieve a list of connected devices
-process = subprocess.Popen(['bluetoothctl', 'paired-devices'], stdout=subprocess.PIPE)
-
-# Extract the MAC addresses of the connected devices
-output, error = process.communicate()
-connected_devices = []
-for line in output.decode().split('\n'):
-    if 'Device' in line:
-        parts = line.split()
-        mac_address = parts[1]
-        connected_devices.append(mac_address)
-
-# Print the MAC addresses of the connected devices
-for address in connected_devices:
-    print(f"Connected device with MAC address: {address}") """
-
-
 try:
     # Call the 'bluetoothctl' command to retrieve a list of connected devices
     process = subprocess.Popen(['bluetoothctl', 'paired-devices'], stdout=subprocess.PIPE)
