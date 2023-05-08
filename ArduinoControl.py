@@ -30,14 +30,14 @@ try:
     # Print the MAC addresses of the connected devices
     for address in connected_devices:
         print(f"Connected device with MAC address: {address}")
-
 except Exception as e:
     # Print the traceback error message
     print(f"Error occurred: {e}")
     traceback.print_exc()
 
 
-""" if __name__ == '__main__':
+try:
+ if __name__ == '__main__':
     arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=0.1)
     arduino.reset_input_buffer()
 
@@ -59,4 +59,8 @@ except Exception as e:
 
         line = write_read(output)
         print(line)
-        time.sleep(1) """
+        time.sleep(1)
+except Exception as e:
+    # Print the traceback error message
+    print(f"Error occurred: {e}")
+    traceback.print_exc()
