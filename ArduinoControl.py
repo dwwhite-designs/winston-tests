@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 import serial
 import time
-import bluetooth
-import psutil
+import subprocess
 
 
 def write_read(inputs):
@@ -14,18 +13,22 @@ def write_read(inputs):
 
 
 
-# Get a list of all processes on the system
-processes = psutil.process_iter()
+# Call the 'lsof' command to retrieve a list of open sockets
+process = subprocess.Popen(['sudo', 'lsof', '-i'], stdout=subprocess.PIPE)
 
-# Filter for processes related to Bluetooth
-bluetooth_procs = [p for p in processes if p.name() == 'bluetoothd']
-
-# Get the MAC addresses of the connected devices
+# Filter for Bluetooth sockets that are currently connected
+output, error = process.communicate()
 connected_devices = []
-for proc in bluetooth_procs:
-    for conn in proc.connections():
-        if conn.status == 'ESTABLISHED' and conn.laddr[1] == 1:
-            connected_devices.append(conn.raddr[0])
+for line in output.decode().split('\n'):
+    if 'bluetooth' in line and 'ESTABLISHED' in line:
+        parts = line.split()
+        mac_address = parts[-1].split(':')[0]
+        if mac_address != '00:00:00:00:00:00':
+            connected_devices.append(mac_address)
+
+# Print the MAC addresses of the connected devices
+for address in connected_devices:
+    print(f"Connected device with MAC address: {address}")
 
 # Print the MAC addresses of the connected devices
 for address in connected_devices:
