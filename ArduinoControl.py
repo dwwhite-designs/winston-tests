@@ -4,7 +4,7 @@ import time
 import subprocess
 import traceback
 
-
+#Serial Commands
 def write_serial(inputs):
     arduino.write(bytes(inputs, 'utf-8'))
     time.sleep(0.1)
@@ -16,7 +16,7 @@ def read_serial():
 
 
 
-
+#Bluetooth Connection
 try:
     # Call the 'bluetoothctl' command to retrieve a list of connected devices
     process = subprocess.Popen(['bluetoothctl', 'paired-devices'], stdout=subprocess.PIPE)
@@ -38,7 +38,7 @@ except Exception as e:
     print(f"Error occurred: {e}")
     traceback.print_exc()
 
-
+#Serial Connection
 try:
  if __name__ == '__main__':
     arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=0.1)
