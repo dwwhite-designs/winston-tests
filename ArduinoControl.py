@@ -2,6 +2,7 @@
 import serial
 import time
 import bluetooth
+import psutil
 
 
 def write_read(inputs):
@@ -11,14 +12,20 @@ def write_read(inputs):
     return data
 
 
-# Get a list of all Bluetooth sockets
-sockets = bluetooth.bluez._get_sockets()
 
-# Filter for sockets that are currently connected
-connected_sockets = [s for s in sockets if s[1] == bluetooth.RFCOMM and s[3] != '00:00:00:00:00:00']
+
+# Get a list of all processes on the system
+processes = psutil.process_iter()
+
+# Filter for processes related to Bluetooth
+bluetooth_procs = [p for p in processes if p.name() == 'bluetoothd']
 
 # Get the MAC addresses of the connected devices
-connected_devices = [s[0][0] for s in connected_sockets]
+connected_devices = []
+for proc in bluetooth_procs:
+    for conn in proc.connections():
+        if conn.status == 'ESTABLISHED' and conn.laddr[1] == 1:
+            connected_devices.append(conn.raddr[0])
 
 # Print the MAC addresses of the connected devices
 for address in connected_devices:
